@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %} TaskMan {% endblock %}
+{% block mainT %} メンバー更新 {% endblock %}
+{% block body %}
+
+<div style="margin:50px 100px;">
+    <form method="post" action="{% url 'task:our_project_delete_member' project.0.pk%}" >
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>リーダ</th>
+                    <td>{{ project.0.leader }}</td>
+                </tr>
+                <tr>
+                    <th>メンバー</th>
+                    <td>
+                        {% if member != None %}
+                            <table class="no_border">
+                                <thead class="MDC">
+                                    <tr>
+                                        <th>ユーザ名</th>
+                                        <th>選択</th>
+                                    </tr>
+                                </thead>
+                                {% for perspn in member %}
+                                    <tr>
+                                        <td>
+                                            {{ perspn.user_cd }}
+                                        </td>
+                                        <td class="MDC">
+                                            <input type="checkbox" class="CCB" name="delete_ids" value="{{ perspn.id }}">
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        {% else %}
+                            メンバーはいません
+                        {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="{% url 'task:our_project_detail' project.0.pk %}" class="btn btn-primary MD">戻る</a>
+        <a class="btn btn-primary MD" style="color: white;" id="AMB">メンバー追加</a>
+        {% if member != None and user == project.0.leader %}
+            <a class="btn btn-primary MD MDB" style="color:white; margin-left: 10px;">メンバー退席</a>
+            <a class="btn btn-primary MDC MDCB" style="color:white; margin-left: 10px;">キャンセル</a>
+            <input class="delete-btn btn btn-primary MDC CPB" style="margin-left: 10px;" type="submit" value="退席">
+            {% csrf_token %}
+        {% endif %}
+    </form>
+</div>
+
+<div id="modal-member">
+    <form action="" method="POST">
+        {{ form.non_field_errors }}
+        {% for field in form %}
+        <div class="form-group">
+            {% if  field.label != "Project cd" %}
+                <label for="{{ field.id_for_label }}">{{ field.label_tag }}</label>
+            {% endif %}
+            {{ field }}
+            <span style="color:red">{{ field.errors }}<span>
+        </div>
+        {% endfor %}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success btn-lg">追加</button>
+        <a class="btn btn-primary btn-lg" style="color: white;" id="AMCB">戻る</a>
+    </form>
+</div>
+{% endblock %}

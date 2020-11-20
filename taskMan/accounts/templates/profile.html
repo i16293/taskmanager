@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %} TaskMan {% endblock %}
+{% block mainT %} ユーザ情報 {% endblock %}
+{% block body %}
+<div style="margin:20px">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>ユーザー名</th>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <th>メールアドレス</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>姓</th>
+                <td>{{ user.last_name }}</td>
+            </tr>
+            <tr>
+                <th>名</th>
+                <td>{{ user.first_name }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="{% url 'accounts:profile_update' user.pk %}" class="btn btn-primary ">変更</a>
+    <a href="{% url 'accounts:password' user.pk %}" class="btn btn-primary ">パスワード変更</a>  
+    <a href="/" class="btn btn-primary ">トップぺージ</a>
+    
+    <div class="icon">
+        {% if user.icon.url != "" %}
+            <img src="{{ user.icon.url }}" style="height: 100px; width: 100px;">
+        {% else %}
+            <img src="/static/img/c0063_6_2.png" style="height: 50px; width: 50px;">
+        {% endif%}
+    </div>
+</div>
+{% endblock %}

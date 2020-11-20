@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %} TaskMan プラン作成 {% endblock %}
+{% block mainT %} 予定登録 {% endblock %}
+{% block mainL %}User : {{ user.get_username }}{% endblock %}
+{% block auth %}
+{% endblock %}
+{% block body %}
+<div style="padding:20px 200px 0px 200px;">
+    <form action="" method="POST">
+        {{ form.non_field_errors }}
+        {% for field in form %}
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label_tag }}</label>
+            {{ field }}
+            <span style="color:red">{{ field.errors }}<span>
+        </div>
+        {% endfor %}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary btn-lg">登録</button>
+    </form>
+</div>
+{% endblock %}

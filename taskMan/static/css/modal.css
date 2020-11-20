@@ -1,0 +1,64 @@
+ /* モーダル 背景 */
+ #modal-bg {
+    display:none;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.5);
+    position:fixed;
+    top:0;
+    left:0;
+    z-index: 1;
+}
+
+/* モーダル コンテンツエリア */
+#modal-member {
+    display: none;
+    width: 50%;
+    height: 300px;
+    padding:50px;
+    border-radius:10px;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    background-color: white;
+    position:fixed;
+    z-index: 2;
+}
+#modal-task-add{
+    display: none;
+    width: 50%;
+    height: 100%;
+    padding:100px 20px 20px 20px;
+    border-radius:10px;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    background-color: white;
+    position:fixed;
+    z-index: 2;
+    overflow:auto;
+}
+
+#modal-task-add, #modal-task-details{
+    display: none;
+    width: 50%;
+    height: 100%;
+    padding:100px 20px 20px 20px;
+    border-radius:10px;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    background-color: white;
+    position:fixed;
+    z-index: 2;
+    overflow:auto;
+}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %} TaskMan {% endblock %}
+{% block mainT %} プラン一覧 {% endblock %}
+{% block body %}
+
+<div class="SenterArea">
+    <h2 class="eleTitle">予定</h2>
+    {% if leader != None %}
+       <!-- {% for lead in leader %} -->
+            <a class="project_area" href="{% url 'task:our_project' lead.pk %}">
+                <div>
+                    <h4>{{lead.name}}</h4>
+                   　<p>題名 : {{lead.leader}}</p>
+                    {% if lead.start_date != None %}
+                        <p>開始日 : {{lead.start_date}}</p>
+                    {% endif %}
+                    {% if lead.end_date != None %}
+                        <p>終了日 : {{lead.end_date}}</p>
+                    {% endif %}
+                    {% if lead.details != None %}
+                        <p>詳細 : {{lead.details}}</p>
+                    {% endif %}
+                </div>
+            </a>
+        <!--{% endfor %}-->
+    {% else %}
+        <h4>課題はありません</h4>
+    {% endif %}
+    <a class="btn btn-outline-secondary" href="/plan/build_plan/">課題登録</a>
+</div>
+
+{% endblock %}

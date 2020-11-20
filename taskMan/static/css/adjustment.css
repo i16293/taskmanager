@@ -1,0 +1,151 @@
+.authElement {
+    margin:20px;
+    text-align: center;
+}
+
+.naviDrop {
+    color:white;
+    margin-right:20px;
+    width:200px;
+
+}
+
+.icon {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.leftArea {
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    border-right: 1px;
+    float:left;
+    word-wrap: break-word;
+}
+
+
+.rightArea {
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    float: right;
+    word-wrap: break-word;
+}
+
+.eleTitle {
+    padding-bottom:10px;
+    border-bottom: solid 5px rgb(36, 0, 119);
+}
+
+.project_area {
+    color:black;
+}
+
+.project_area:hover{
+    text-decoration:  none;
+}
+
+.project_area div{
+    border-radius:20px;
+    padding:10px;
+    margin-bottom:20px;
+    width: 80%;
+    background-color: rgb(235, 244, 255);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.project_area div:hover{
+    background-color: #c3dfff; /*ボタン色*/
+}
+
+.project_area h4{
+    border-bottom: solid 3px rgb(3, 0, 161);
+}
+
+.header {
+    width: 99%;
+    margin: 3px auto;
+    box-shadow: 0 3px 5px rgba(95, 95, 95, 0.22);
+}
+
+.header {
+    width: 99%;
+    margin: 3px auto;
+    box-shadow: 0 3px 5px rgba(95, 95, 95, 0.22);
+}
+
+.delete-btn{
+    background-color: red;
+    border: solid 1px black;
+}
+
+.delete-btn:hover{
+    background-color: rgb(145, 0, 0);
+}
+
+.member_list td, .member_list th{
+    padding:5px 10px;
+    border-bottom: solid 1px black;
+}
+
+table.no_border, .no_border thead, .no_border tbody, .no_border tr, .no_border th, .no_border td{
+    border: none;
+}
+
+.member_list td, .member_list th{
+    padding:5px 10px;
+    border-bottom: solid 1px black;
+}
+
+table.no_border, .no_border thead, .no_border tbody, .no_border tr, .no_border th, .no_border td{
+    border: none;
+}
+
+
+/*追加*/
+ul, li {
+    padding: 0px;
+    margin: 0px;
+}
+
+#taskList ul li,#taskList ol li{
+    border-left: solid 8px black;/*左側の線*/
+    border-bottom: solid 2px #dadada;/*下に灰色線*/
+    background: #494949;/*背景色*/
+    margin-bottom: 5px;/*下のバーとの余白*/
+    border-radius: 15px 15px 15px 15px;
+    padding: 20px;
+    list-style-type: none!important;
+    color: white;
+    margin: 5px 50px;
+}
+
+#taskList .task5{
+    border-left: solid 8px rgb(252, 44, 44);/*左側の線*/
+}
+
+#taskList .task4{
+    border-left: solid 8px rgb(252, 255, 70);/*左側の線*/
+}
+
+#taskList .task3{
+    border-left: solid 8px rgb(85, 250, 98);/*左側の線*/
+}
+
+#taskList .task2{
+    border-left: solid 8px rgb(100, 253, 253);/*左側の線*/
+}
+
+#taskList .task1{
+    border-left: solid 8px rgb(56, 53, 255);/*左側の線*/
+}
+
+.inDetail{
+    display: none;
+}
+
+#taskAccordion li {
+    cursor: pointer;
+}

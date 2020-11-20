@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %} TaskMan {% endblock %}
+{% block mainT %} {{ project.0.name }} 詳細情報 {% endblock %}
+{% block body %}
+<div style="margin:20px">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>プロジェクト名</th>
+                <td>{{ project.0.name }}</td>
+            </tr>
+            <tr>
+                <th>開始日</th>
+                <td>{{ project.0.start_date }}</td>
+            </tr>
+            <tr>
+                <th>終了日</th>
+                <td>{{ project.0.end_date }}</td>
+            </tr>
+            <tr>
+                <th>詳細</th>
+                <td>{{ project.0.details }}</td>
+            </tr>
+
+            <tr>
+                <th>メンバー</th>
+                <td>
+                    {% if member != None %}
+                        <table class="no_border">
+                            {% for perspn in member %}
+                                <tr>
+                                    <td>
+                                        {{ perspn.user_cd }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% else %}
+                        メンバーはいません
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+  
+    <hr>
+    <a href="{% url 'task:our_project' project.0.pk %}" class="btn btn-primary" style="width: 120px; margin-right:10px;">戻る</a>
+    <a href="{% url 'task:our_project_update' project.0.pk %}" class="btn btn-primary ">変更</a>
+    <a href="{% url 'task:our_project_delete' project.0.pk %}" class="delete-btn btn btn-primary">削除</a>
+
+</div>
+{% endblock %}

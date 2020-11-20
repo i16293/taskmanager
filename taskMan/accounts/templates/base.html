@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang='ja'>
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/c0063_6_2.png' %}">
+
+        <title>{% block title %}{% endblock %}</title>
+
+        <link href="{% static 'bootstrap/dist/css/bootstrap.css' %}" rel="stylesheet">
+        <link href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'bootstrap/dist/css/bootstrap-grid.css' %}" rel="stylesheet">
+        <link href="{% static 'bootstrap/dist/css/bootstrap-grid.min.css' %}" rel="stylesheet">
+        <link href="{% static 'bootstrap/dist/css/bootstrap-reboot.css' %}" rel="stylesheet">
+        <link href="{% static 'bootstrap/dist/css/bootstrap-reboot.min.css' %}" rel="stylesheet">
+        <link href="{% static 'bootstrap/docs/4.0/examples/dashboard/dashboard.css' %}" rel="stylesheet">
+
+        <link href="{% static 'css/adjustment.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/navibar.css' %}" rel="stylesheet" type="text/css">  
+
+        <script type="text/javascript" src="{% static 'js/jquery-3.5.1.min.js' %}"></script> 
+
+        <script src="{% static 'bootstrap/assets/js/vendor/anchor.min.js' %}"></script>
+        <script src="{% static 'bootstrap/assets/js/vendor/clipboard.min.js' %}"></script>
+        <script src="{% static 'bootstrap/assets/js/vendor/holder.min.js' %}"></script>
+        <script src="{% static 'bootstrap/assets/js/vendor/popper.min.js' %}"></script>
+        <script src="{% static 'bootstrap/dist/js/bootstrap.bundle.js' %}"></script>
+        <script src="{% static 'bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'bootstrap/dist/js/bootstrap.js' %}"></script>
+        <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'bootstrap/js/dist/alert.js' %}"></script>
+        <script src="{% static 'bootstrap/js/dist/button.js' %}"></script>
+        <script src="{% static 'bootstrap/js/dist/carousel.js' %}"></script>
+        <script src="{% static 'bootstrap/js/dist/collapse.js' %}"></script>
+        <script src="{% static 'bootstrap/js/dist/dropdown.js' %}"></script>
+        <script src="{% static 'bootstrap/js/dist/index.js' %}"></script>
+        <script src="{% static 'bootstrap/js/dist/modal.js' %}"></script>
+        <script src="{% static 'bootstrap/js/dist/scrollspy.js' %}"></script>
+        <script src="{% static 'bootstrap/js/dist/tab.js' %}"></script>
+        <script src="{% static 'bootstrap/js/dist/tooltip.js' %}"></script>
+        <script src="{% static 'bootstrap/js/dist/util.js' %}"></script>
+
+        <script src="{% static 'js/navibar.js' %}"></script>  <!-- 追加 -->
+
+        <link href="{% static 'css/modal.css' %}" rel="stylesheet" type="text/css">
+
+<script src="{% static 'js/modal.js' %}"></script>
+<script src="{% static 'js/masta.js' %}"></script>
+
+<link href="{% static 'css/slider.css' %}" rel="stylesheet" type="text/css">
+<script src="{% static 'js/ajax.js' %}"></script>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+            <a class="navbar-brand col-sm-3 col-md-2 mr-0 barbtn" href="top.html">タスク管理</a>  <!-- 変更 -->
+            <div class="form-control form-control-dark w-100">{% block mainT %}{% endblock %}</div> 
+            <div class="btn-group">
+                <div class="btn dropdown-toggle naviDrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {% if user.is_authenticated %}
+                            User : {{ user.get_username }}
+                            {% if user.icon.url != "" %}
+                                <img src="{{ user.icon.url }}" style="height: 20px; width: 20px;">
+                            {% else %}
+                                <img src="/static/img/c0063_6_2.png" style="height: 20px; width: 20px;">
+                            {% endif%}
+                        {% else %}
+                            User
+                        {% endif %}
+                </div>
+                {% if user.is_authenticated %}
+                    <div class="dropdown-menu dropdown-menu-right" >
+                    <a class="dropdown-item" href="{% url 'accounts:profile' user.pk %}">ユーザ情報</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/logout/">ログアウト</a>
+                    </div>
+                {% endif %}
+            </div>
+        </nav>
+
+　　　 <!-- 追加 start -->
+        <div class="drawr">
+            <div class="barmenu top">メニュー</div>
+            <div class="barmenu"><a href="/">トップページ</a></div>
+            <div class="barmenu"><a href="/task/">タスク</a></div>
+            <div class="barmenu"><a href="/plan/">カレンダー</a></div>
+        </div>
+      <!-- 追加 end -->
+
+        {% block body %}{% endblock %}
+
+    </body>
+</html>

@@ -1,0 +1,40 @@
+input[type=range].vertical {
+    -webkit-appearance: none;
+    background-color: #0099FF;
+    width: 150px;
+    height: 4px;
+    /*margin-top: 100px;*/
+    -webkit-transform:rotate(-90deg);       
+    -moz-transform:rotate(-90deg);
+    -o-transform:rotate(-90deg);
+    -ms-transform:rotate(-90deg);
+    transform:rotate(-90deg);
+    z-index: 0;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    background-color: #0099FF;
+    height: 4px;
+    width: 300px;
+    border: none;
+    border-radius: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: #0099FF;
+    border: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+input[type=range]:focus{
+    outline: none;
+}
+
+input[type=range]:hover{
+    background: #B2E0FF;
+}

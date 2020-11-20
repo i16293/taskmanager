@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %} TaskMan {% endblock %}
+{% block mainT %} 更新 {% endblock %}
+{% block body %}
+<div style="margin:20px">
+    <form action="" method="POST"　enctype ="multipart/form-data">
+        {{ form.non_field_errors }}
+        <table class="table">
+            <tbody>
+                {% for field in form %}
+                    <tr>
+                        <th><label for="{{ field.id_for_label }}">{{ field.label }}</label></th>
+                        <td>{{ field }} <span style="color:red">{{ field.errors }}<span></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success" >更新</button>
+        <a href="{% url 'task:our_project' project.pk %}" class="btn btn-primary">戻る</a>
+    </form>
+</div>
+{% endblock %}

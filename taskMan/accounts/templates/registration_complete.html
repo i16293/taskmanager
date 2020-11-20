@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %} TaskMan アカウント作成 {% endblock %}
+{% block mainT %} アカウント作成 {% endblock %}
+{% block mainL %}User : {{ user.get_username }}{% endblock %}
+{% block auth %}
+{% endblock %}
+{% block body %}
+  <div style="text-align: center; padding-top: 50px;">
+        <h2 >登録が完了しました</h2>
+        <a class="nav-link" href="/login/">ログイン</a>
+    </div>
+    {% endblock %}
